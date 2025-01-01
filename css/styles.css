@@ -3,10 +3,6 @@ body {
     color: black;
 }
 
-h1 {
-    margin-bottom: 20px;
-}
-
 .recipes-links {
   list-style-type: none;
   padding-left: 0;
@@ -37,6 +33,7 @@ h1 {
 .back-button {
   display: inline-block;
   padding: 10px 20px;
+  font-family: sans-serif;
   font-size: 16px;
   color: #fff;
   background-color: #333;
