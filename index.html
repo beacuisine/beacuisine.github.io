@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Béa cuisine</title>
-</head>
-<body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        border-bottom: 1px solid #ccc;
+      }
+
+      a:hover {
+        background-color: #f9f9f9;
+      }
+
+      #search-input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="search-input" placeholder="Rechercher..." />
     <a href="dal-lentilles-lait-coco.html">Dal de lentilles au lait de coco</a>
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("search-input");
+        const links = document.querySelectorAll("a");
+
+        searchInput.addEventListener("input", function () {
+          const filter = searchInput.value.toLowerCase();
+          links.forEach((link) => {
+            if (link.innerText.toLowerCase().includes(filter)) {
+              link.style.display = "";
+            } else {
+              link.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
