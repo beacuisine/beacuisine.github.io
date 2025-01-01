@@ -1,0 +1,55 @@
+body {
+    background-color: white;
+    color: black;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+a {
+  display: block;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+}
+
+a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+#search-input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  background-color: #555;
+}
+
+ol {
+  padding-left: 0;
+}
+
+ol li {
+  margin-bottom: 10px;
+  list-style-position: inside;
+}

@@ -3,37 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Béa cuisine</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-      }
-
-      a {
-        display: block;
-        padding: 10px;
-        text-decoration: none;
-        color: #333;
-        border-bottom: 1px solid #ccc;
-      }
-
-      a:hover {
-        background-color: #333;
-        color: #fff;
-      }
-
-      #search-input {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-      }
-    </style>
+    <title>Liste de recettes - Béa cuisine</title>
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <h1>Liste de recettes de cuisine</h1>
+    <label for="search-input">Rechercher une recette :</label>
     <input type="text" id="search-input" placeholder="Rechercher..." />
-    <a href="dal-lentilles-lait-coco.html">Dal de lentilles au lait de coco</a>
+    <a href="./recette/dal-lentilles-lait-coco.html">Dal de lentilles au lait de coco</a>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("search-input");
