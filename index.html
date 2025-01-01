@@ -7,19 +7,27 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <h1>Liste de recettes de cuisine</h1>
-    <form>
-        <label for="search-input">Rechercher une recette :</label>
-        <input type="text" id="search-input" placeholder="Rechercher..." />
+    <header role="banner">
+      <h1>Liste de recettes de cuisine</h1>
+    </header>
+    <form role="search">
+      <label for="search-input">Rechercher une recette :</label>
+      <input type="text" id="search-input" placeholder="Rechercher..." />
     </form>
-    <ul class="recipes-links">
+    <nav role="navigation">
+      <ul class="recipes-links">
         <li>
-            <a href="./recette/dal-lentilles-lait-coco.html">Dal de lentilles au lait de coco</a>
+          <a href="./recette/dal-lentilles-lait-coco.html"
+            >Dal de lentilles au lait de coco</a
+          >
         </li>
         <li>
-            <a href="./recette/terrine-deux-saumons.html">Terrine aux deux saumons</a>
+          <a href="./recette/terrine-deux-saumons.html"
+            >Terrine aux deux saumons</a
+          >
         </li>
-    </ul>
+      </ul>
+    </nav>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("search-input");
