@@ -7,7 +7,12 @@ h1 {
     margin-bottom: 20px;
 }
 
-a {
+.recipes-links {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.recipes-links a {
   display: block;
   padding: 10px;
   font-family: Arial, sans-serif;
@@ -16,7 +21,7 @@ a {
   border-bottom: 1px solid #ccc;
 }
 
-a:hover {
+.recipes-links a:hover {
   background-color: #333;
   color: #fff;
 }
