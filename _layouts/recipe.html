@@ -3,48 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ page.title }} - Béa cuisine</title>
+    <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}" />
   </head>
   <body>
     <header role="banner">
       <a href="{{ '/' | relative_url }}" class="back-button">
-        <span aria-hidden="true">&#8592; </span>Retour à la liste de recettes
+        <span aria-hidden="true">&#8592; </span>Retour à la liste des recettes
       </a>
     </header>
     <main role="main">
-      <h1>{{ page.title }}</h1>
-      <img class="recipe-picture" src="{{ page.image | relative_url }}" alt="" />
-      <p>Recette pour {{ page.servings }} personnes</p>
-      
-      <h2>Ingrédients</h2>
-      {{ page.ingredients | markdownify }}
-      
-      <h2>Temps de préparation</h2>
-      <p>{{ page.prep_time }}</p>
-      
-      {% if page.cook_time %}
-      <h2>Temps de cuisson</h2>
-      <p>{{ page.cook_time }}</p>
-      {% endif %}
-      
-      {% if page.refrigeration_time %}
-      <h2>Temps de réfrigération</h2>
-      <p>{{ page.refrigeration_time }}</p>
-      {% endif %}
-      
-      <h2>Étapes</h2>
-      {{ page.steps | markdownify }}
-      
-      {% if page.notes %}
-      {{ page.notes | markdownify }}
-      {% endif %}
+      <article class="recipe">
+        <h1>{{ page.title }}</h1>
+        
+        {% if page.image %}
+        <img class="recipe-picture" src="{{ page.image | relative_url }}" alt="{{ page.title }}" />
+        {% endif %}
+        
+        {% if page.servings %}
+        <p class="recipe-servings">Recette pour {{ page.servings }} personnes</p>
+        {% endif %}
+        
+        <div class="recipe-times">
+          {% if page.prep_time %}
+          <p><strong>Temps de préparation :</strong> {{ page.prep_time }}</p>
+          {% endif %}
+          
+          {% if page.cook_time %}
+          <p><strong>Temps de cuisson :</strong> {{ page.cook_time }}</p>
+          {% endif %}
+          
+          {% if page.refrigeration_time %}
+          <p><strong>Temps de réfrigération :</strong> {{ page.refrigeration_time }}</p>
+          {% endif %}
+        </div>
+        
+        {{ content | split: "### Ingrédients" | last | split: "### Étapes" | first | prepend: "### Ingrédients" | markdownify }}
+        
+        {{ content | split: "### Étapes" | last | split: "### Notes" | first | prepend: "### Étapes" | markdownify }}
+        
+        {% if content contains "### Notes" %}
+        {{ content | split: "### Notes" | last | prepend: "### Notes" | markdownify }}
+        {% endif %}
+        
+        {% if page.source %}
+        <footer class="recipe-source">
+          <hr />
+          <p>Source : {{ page.source }}</p>
+        </footer>
+        {% endif %}
+      </article>
     </main>
-    <footer role="contentinfo">
-      <hr />
-      {% if page.source %}
-      Source : {{ page.source }}
-      {% endif %}
-    </footer>
   </body>
 </html> 
