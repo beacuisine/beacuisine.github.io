@@ -1,0 +1,22 @@
+title: Béa cuisine
+description: Recettes de cuisine et desserts
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://beacuisine.github.io" # the base hostname & protocol for your site
+
+# Collections
+collections:
+  recipes:
+    output: true
+    permalink: /recipe/:slug/
+    layout: recipe
+
+# Build settings
+markdown: kramdown
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git/ 
