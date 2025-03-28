@@ -14,6 +14,13 @@
       <label for="search-input">Rechercher une recette :</label>
       <input type="text" id="search-input" placeholder="Rechercher..." />
     </form>
+    <div class="filters">
+      <button class="filter-btn active" data-category="all">Toutes les recettes</button>
+      <button class="filter-btn" data-category="starter">Entrées</button>
+      <button class="filter-btn" data-category="main">Plats principaux</button>
+      <button class="filter-btn" data-category="bread">Pains</button>
+      <button class="filter-btn" data-category="dessert">Desserts</button>
+    </div>
     <nav role="navigation">
       <ul class="list-recipes">
         <li>
@@ -91,16 +98,48 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("search-input");
-        const links = document.querySelectorAll("a");
+        const links = document.querySelectorAll("a.link-recipe");
+        const filterButtons = document.querySelectorAll(".filter-btn");
 
-        searchInput.addEventListener("input", function () {
-          const filter = searchInput.value.toLowerCase();
+        // Add data-category attributes to recipes
+        const recipeCategories = {
+          "banana-bread.html": ["dessert"],
+          "buche-aperitive-noel.html": ["starter"],
+          "cake-moelleux-amande-citron-mascarpone.html": ["dessert"],
+          "clafoutis-salé-poireaux-patates-douces.html": ["main"],
+          "curry-butternut-lentilles-vertes-coco.html": ["main"],
+          "dal-lentilles-lait-coco.html": ["main"],
+          "gratin-lentilles-patates-douces.html": ["main"],
+          "tarte-poireaux-chevre-noisettes.html": ["main"],
+          "terrine-deux-saumons.html": ["starter"],
+          "tiramisu-coco-framboises-litchis.html": ["dessert"]
+        };
+
+        links.forEach(link => {
+          const href = link.getAttribute("href");
+          const recipeName = href.split("/").pop();
+          link.setAttribute("data-categories", JSON.stringify(recipeCategories[recipeName]));
+        });
+
+        function filterRecipes() {
+          const searchFilter = searchInput.value.toLowerCase();
+          const activeCategory = document.querySelector(".filter-btn.active").dataset.category;
+
           links.forEach((link) => {
-            if (link.innerText.toLowerCase().includes(filter)) {
-              link.style.display = "";
-            } else {
-              link.style.display = "none";
-            }
+            const matchesSearch = link.innerText.toLowerCase().includes(searchFilter);
+            const categories = JSON.parse(link.getAttribute("data-categories"));
+            const matchesCategory = activeCategory === "all" || categories.includes(activeCategory);
+            link.style.display = matchesSearch && matchesCategory ? "" : "none";
+          });
+        }
+
+        searchInput.addEventListener("input", filterRecipes);
+
+        filterButtons.forEach(button => {
+          button.addEventListener("click", () => {
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+            filterRecipes();
           });
         });
       });
