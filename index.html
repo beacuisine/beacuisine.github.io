@@ -19,6 +19,7 @@
       header h1 {
         color: #2c3e50;
         font-size: 2.5rem;
+        margin-top: 0;
         margin-bottom: 1rem;
       }
       .search-container {
@@ -185,43 +186,42 @@
   <body>
     <header role="banner">
       <h1>Recettes de cuisine</h1>
-      <p>Découvrez nos délicieuses recettes faites maison</p>
+      <div class="search-container">
+        <form role="search">
+          <label for="search-input">Rechercher une recette :</label>
+          <input type="text" id="search-input" placeholder="Rechercher..." aria-label="Rechercher une recette" />
+        </form>
+      </div>
     </header>
-    <div class="search-container">
-      <form role="search">
-        <label for="search-input">Rechercher une recette :</label>
-        <input type="text" id="search-input" placeholder="Rechercher..." aria-label="Rechercher une recette" />
-      </form>
-    </div>
-    <div class="controls">
-      <div class="filters">
-        <button class="filter-btn active" data-category="all">Toutes les recettes</button>
-        <button class="filter-btn" data-category="starter">Entrées</button>
-        <button class="filter-btn" data-category="main">Plats principaux</button>
-        <button class="filter-btn" data-category="dessert">Desserts</button>
+    <main role="main">
+      <div class="controls">
+        <div class="filters">
+          <button class="filter-btn active" data-category="all">Toutes les recettes</button>
+          <button class="filter-btn" data-category="starter">Entrées</button>
+          <button class="filter-btn" data-category="main">Plats principaux</button>
+          <button class="filter-btn" data-category="dessert">Desserts</button>
+        </div>
+        <div class="layout-toggle">
+          <button class="layout-btn active" data-layout="grid" aria-label="Vue grille">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+            </svg>
+          </button>
+          <button class="layout-btn" data-layout="list" aria-label="Vue liste">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="8" y1="6" x2="21" y2="6"></line>
+              <line x1="8" y1="12" x2="21" y2="12"></line>
+              <line x1="8" y1="18" x2="21" y2="18"></line>
+              <line x1="3" y1="6" x2="3.01" y2="6"></line>
+              <line x1="3" y1="12" x2="3.01" y2="12"></line>
+              <line x1="3" y1="18" x2="3.01" y2="18"></line>
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="layout-toggle">
-        <button class="layout-btn active" data-layout="grid" aria-label="Vue grille">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="7" height="7"></rect>
-            <rect x="14" y="3" width="7" height="7"></rect>
-            <rect x="3" y="14" width="7" height="7"></rect>
-            <rect x="14" y="14" width="7" height="7"></rect>
-          </svg>
-        </button>
-        <button class="layout-btn" data-layout="list" aria-label="Vue liste">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="8" y1="6" x2="21" y2="6"></line>
-            <line x1="8" y1="12" x2="21" y2="12"></line>
-            <line x1="8" y1="18" x2="21" y2="18"></line>
-            <line x1="3" y1="6" x2="3.01" y2="6"></line>
-            <line x1="3" y1="12" x2="3.01" y2="12"></line>
-            <line x1="3" y1="18" x2="3.01" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <nav role="navigation">
       <ul class="list-recipes grid-view">
         <li>
           <a class="link-recipe" href="/recipe/banana-bread/">
@@ -284,7 +284,7 @@
           </a>
         </li>
       </ul>
-    </nav>
+    </main>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("search-input");
