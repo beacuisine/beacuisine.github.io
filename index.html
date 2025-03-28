@@ -45,16 +45,25 @@
         flex-wrap: wrap;
       }
       .filter-btn {
-        padding: 0.5rem 1rem;
+        padding: 0.8rem 1.5rem;
         border: none;
-        border-radius: 20px;
+        border-radius: 25px;
         background-color: #f0f0f0;
         cursor: pointer;
         transition: all 0.3s ease;
+        font-size: 1.1rem;
+        font-weight: 500;
+        white-space: nowrap;
+        min-width: fit-content;
       }
       .filter-btn.active {
         background-color: #3498db;
         color: white;
+        box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+      }
+      .filter-btn:hover:not(.active) {
+        background-color: #e0e0e0;
+        transform: translateY(-1px);
       }
       .list-recipes {
         display: grid;
@@ -82,11 +91,14 @@
           padding: 1rem;
         }
         .filters {
-          flex-direction: column;
-          align-items: stretch;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.8rem;
         }
         .filter-btn {
-          width: 100%;
+          padding: 0.7rem 1.2rem;
+          font-size: 1rem;
         }
       }
     </style>
