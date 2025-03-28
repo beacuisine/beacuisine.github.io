@@ -40,28 +40,24 @@
         
         {% assign content_parts = content | split: "###" %}
         {% for part in content_parts %}
-          {% if forloop.first %}
-            {% continue %}
-          {% endif %}
-          
           {% if part contains "Ingrédients" %}
             <section class="recipe-ingredients">
               <h2>Ingrédients</h2>
-              {{ part | remove: "Ingrédients" | markdownify }}
+              {{ part | remove: "Ingrédients" | strip | markdownify }}
             </section>
           {% endif %}
           
           {% if part contains "Étapes" %}
             <section class="recipe-steps">
               <h2>Étapes</h2>
-              {{ part | remove: "Étapes" | markdownify }}
+              {{ part | remove: "Étapes" | strip | markdownify }}
             </section>
           {% endif %}
           
           {% if part contains "Notes" %}
             <section class="recipe-notes">
               <h2>Notes</h2>
-              {{ part | remove: "Notes" | markdownify }}
+              {{ part | remove: "Notes" | strip | markdownify }}
             </section>
           {% endif %}
         {% endfor %}
