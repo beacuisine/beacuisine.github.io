@@ -40,6 +40,10 @@
         
         {% assign content_parts = content | split: "###" %}
         {% for part in content_parts %}
+          {% if forloop.first %}
+            {% continue %}
+          {% endif %}
+          
           {% if part contains "Ingrédients" %}
             <section class="recipe-ingredients">
               <h2>Ingrédients</h2>
