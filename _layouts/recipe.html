@@ -25,6 +25,10 @@
         {% endif %}
         
         <div class="recipe-times">
+          {% if page.total_time %}
+          <p><strong>Temps total :</strong> {{ page.total_time }}</p>
+          {% endif %}
+
           {% if page.prep_time %}
           <p><strong>Temps de préparation :</strong> {{ page.prep_time }}</p>
           {% endif %}
@@ -38,34 +42,15 @@
           {% endif %}
         </div>
         
-        {% assign ingredients = content | split: "### Ingrédients" | last | split: "### Étapes" | first %}
-        {% assign steps = content | split: "### Étapes" | last | split: "### Notes" | first %}
-        {% assign notes = content | split: "### Notes" | last %}
+        {{ page.content }}
         
-        <section class="recipe-ingredients">
-          <h2>Ingrédients</h2>
-          {{ ingredients | markdownify }}
-        </section>
         
-        <section class="recipe-steps">
-          <h2>Étapes</h2>
-          {{ steps | markdownify }}
-        </section>
-        
-        {% if content contains "### Notes" %}
-        <section class="recipe-notes">
-          <h2>Notes</h2>
-          {{ notes | markdownify }}
-        </section>
-        {% endif %}
-        
-        {% if page.source %}
-        <footer class="recipe-source">
-          <hr />
-          <p>Source : {{ page.source }}</p>
-        </footer>
-        {% endif %}
       </article>
     </main>
+    {% if page.source %}
+    <footer class="recipe-source">
+        <p>Source : {{ page.source }}</p>
+    </footer>
+    {% endif %}
   </body>
 </html> 
