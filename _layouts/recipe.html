@@ -38,29 +38,26 @@
           {% endif %}
         </div>
         
-        {% assign content_parts = content | split: "###" %}
-        {% for part in content_parts %}
-          {% if part contains "Ingrédients" %}
-            <section class="recipe-ingredients">
-              <h2>Ingrédients</h2>
-              {{ part | remove: "Ingrédients" | strip | markdownify }}
-            </section>
-          {% endif %}
-          
-          {% if part contains "Étapes" %}
-            <section class="recipe-steps">
-              <h2>Étapes</h2>
-              {{ part | remove: "Étapes" | strip | markdownify }}
-            </section>
-          {% endif %}
-          
-          {% if part contains "Notes" %}
-            <section class="recipe-notes">
-              <h2>Notes</h2>
-              {{ part | remove: "Notes" | strip | markdownify }}
-            </section>
-          {% endif %}
-        {% endfor %}
+        {% assign ingredients = content | split: "### Ingrédients" | last | split: "### Étapes" | first %}
+        {% assign steps = content | split: "### Étapes" | last | split: "### Notes" | first %}
+        {% assign notes = content | split: "### Notes" | last %}
+        
+        <section class="recipe-ingredients">
+          <h2>Ingrédients</h2>
+          {{ ingredients | markdownify }}
+        </section>
+        
+        <section class="recipe-steps">
+          <h2>Étapes</h2>
+          {{ steps | markdownify }}
+        </section>
+        
+        {% if content contains "### Notes" %}
+        <section class="recipe-notes">
+          <h2>Notes</h2>
+          {{ notes | markdownify }}
+        </section>
+        {% endif %}
         
         {% if page.source %}
         <footer class="recipe-source">
