@@ -28,7 +28,7 @@
           {% if page.total_time %}
           <p><strong>Temps total :</strong> {{ page.total_time }}</p>
           {% endif %}
-
+          
           {% if page.prep_time %}
           <p><strong>Temps de préparation :</strong> {{ page.prep_time }}</p>
           {% endif %}
@@ -43,12 +43,12 @@
         </div>
         
         {{ page.content }}
-        
       </article>
     </main>
+    
     {% if page.source %}
     <footer class="recipe-source">
-        <p>Source : {{ page.source }}</p>
+      <p>Source : {{ page.source }}</p>
     </footer>
     {% endif %}
   </body>
