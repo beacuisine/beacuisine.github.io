@@ -35,8 +35,8 @@
         transition: border-color 0.3s ease;
       }
       #search-input:focus {
-        outline: none;
-        border-color: #3498db;
+        border-color: #666666;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
       }
       .controls {
         display: flex;
@@ -62,10 +62,16 @@
         background: none;
         cursor: pointer;
         color: #666;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
       }
       .layout-btn.active {
-        color: #3498db;
+        color: #333333;
+      }
+      .layout-btn:hover {
+        color: #333333;
+      }
+      .layout-btn:focus {
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
       }
       .filter-btn {
         padding: 0.8rem 1.5rem;
@@ -80,13 +86,20 @@
         min-width: fit-content;
       }
       .filter-btn.active {
-        background-color: #3498db;
+        background-color: #333333;
         color: white;
-        box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       }
       .filter-btn:hover:not(.active) {
         background-color: #e0e0e0;
         transform: translateY(-1px);
+      }
+      .filter-btn:focus {
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+      }
+      .filter-btn.active:focus {
+        outline-offset: 2px;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
       }
       .list-recipes {
         list-style: none;
