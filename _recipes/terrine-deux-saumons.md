@@ -6,7 +6,7 @@ servings: 5
 total_time: 1h 05 min
 prep_time: 15 min
 cook_time: 50 min
-chill_time: 2h minimum
+refrigeration_time: 2 heures
 source: https://www.enviedebienmanger.fr/fiche-recette/recette-terrine-aux-deux-saumons
 ---
 

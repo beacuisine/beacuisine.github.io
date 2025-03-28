@@ -6,7 +6,7 @@ servings: 5
 total_time: 1h 35 min
 prep_time: 15 min
 cook_time: 20 min à 180°C
-chill_time: 1h minimum
+refrigeration_time: 1h minimum
 source: https://www.instagram.com/reel/C1Cu9j-MyES/
 ---
 
