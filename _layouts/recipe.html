@@ -38,13 +38,29 @@
           {% endif %}
         </div>
         
-        {{ content | split: "### Ingrédients" | last | split: "### Étapes" | first | prepend: "### Ingrédients" | markdownify }}
-        
-        {{ content | split: "### Étapes" | last | split: "### Notes" | first | prepend: "### Étapes" | markdownify }}
-        
-        {% if content contains "### Notes" %}
-        {{ content | split: "### Notes" | last | prepend: "### Notes" | markdownify }}
-        {% endif %}
+        {% assign content_parts = content | split: "###" %}
+        {% for part in content_parts %}
+          {% if part contains "Ingrédients" %}
+            <section class="recipe-ingredients">
+              <h2>Ingrédients</h2>
+              {{ part | remove: "Ingrédients" | markdownify }}
+            </section>
+          {% endif %}
+          
+          {% if part contains "Étapes" %}
+            <section class="recipe-steps">
+              <h2>Étapes</h2>
+              {{ part | remove: "Étapes" | markdownify }}
+            </section>
+          {% endif %}
+          
+          {% if part contains "Notes" %}
+            <section class="recipe-notes">
+              <h2>Notes</h2>
+              {{ part | remove: "Notes" | markdownify }}
+            </section>
+          {% endif %}
+        {% endfor %}
         
         {% if page.source %}
         <footer class="recipe-source">
