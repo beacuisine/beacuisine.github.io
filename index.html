@@ -37,12 +37,34 @@
         outline: none;
         border-color: #3498db;
       }
-      .filters {
+      .controls {
         display: flex;
-        justify-content: center;
-        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
         margin-bottom: 2rem;
         flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .filters {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .layout-toggle {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      .layout-btn {
+        padding: 0.5rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: #666;
+        transition: color 0.3s ease;
+      }
+      .layout-btn.active {
+        color: #3498db;
       }
       .filter-btn {
         padding: 0.8rem 1.5rem;
@@ -66,11 +88,18 @@
         transform: translateY(-1px);
       }
       .list-recipes {
+        list-style: none;
+        padding: 0;
+      }
+      .list-recipes.grid-view {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 1.5rem;
-        list-style: none;
-        padding: 0;
+      }
+      .list-recipes.list-view {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
       .link-recipe {
         display: block;
@@ -82,6 +111,32 @@
         color: #2c3e50;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
+      .grid-view .link-recipe {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .grid-view .recipe-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+      .list-view .link-recipe {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .list-view .recipe-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      .recipe-title {
+        flex: 1;
+      }
       .link-recipe:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0,0,0,0.15);
@@ -89,6 +144,10 @@
       @media (max-width: 768px) {
         body {
           padding: 1rem;
+        }
+        .controls {
+          flex-direction: column;
+          align-items: stretch;
         }
         .filters {
           flex-direction: row;
@@ -99,6 +158,14 @@
         .filter-btn {
           padding: 0.7rem 1.2rem;
           font-size: 1rem;
+        }
+        .list-view .link-recipe {
+          flex-direction: column;
+          text-align: center;
+        }
+        .list-view .recipe-image {
+          width: 100%;
+          height: 200px;
         }
       }
     </style>
@@ -114,43 +181,95 @@
         <input type="text" id="search-input" placeholder="Rechercher..." aria-label="Rechercher une recette" />
       </form>
     </div>
-    <div class="filters">
-      <button class="filter-btn active" data-category="all">Toutes les recettes</button>
-      <button class="filter-btn" data-category="starter">Entrées</button>
-      <button class="filter-btn" data-category="main">Plats principaux</button>
-      <button class="filter-btn" data-category="dessert">Desserts</button>
+    <div class="controls">
+      <div class="filters">
+        <button class="filter-btn active" data-category="all">Toutes les recettes</button>
+        <button class="filter-btn" data-category="starter">Entrées</button>
+        <button class="filter-btn" data-category="main">Plats principaux</button>
+        <button class="filter-btn" data-category="dessert">Desserts</button>
+      </div>
+      <div class="layout-toggle">
+        <button class="layout-btn active" data-layout="grid" aria-label="Vue grille">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+          </svg>
+        </button>
+        <button class="layout-btn" data-layout="list" aria-label="Vue liste">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
     <nav role="navigation">
-      <ul class="list-recipes">
+      <ul class="list-recipes grid-view">
         <li>
-          <a class="link-recipe" href="/recipe/banana-bread/">Banana bread - Pain/cake à la banane</a>
+          <a class="link-recipe" href="/recipe/banana-bread/">
+            <img class="recipe-image" src="/images/banana-bread.jpg" alt="Banana bread" />
+            <span class="recipe-title">Banana bread - Pain/cake à la banane</span>
+          </a>
         </li>
         <li>
-          <a class="link-recipe" href="/recipe/buche-aperitive-noel/">Bûche apéritive de Noël</a>
+          <a class="link-recipe" href="/recipe/buche-aperitive-noel/">
+            <img class="recipe-image" src="/images/buche-aperitive-noel.jpg" alt="Bûche apéritive" />
+            <span class="recipe-title">Bûche apéritive de Noël</span>
+          </a>
         </li>
         <li>
-          <a class="link-recipe" href="/recipe/cake-moelleux-amande-citron-mascarpone/">Cake moelleux amande citron mascarpone</a>
+          <a class="link-recipe" href="/recipe/cake-moelleux-amande-citron-mascarpone/">
+            <img class="recipe-image" src="/images/cake-moelleux-amande-citron-mascarpone.jpg" alt="Cake moelleux" />
+            <span class="recipe-title">Cake moelleux amande citron mascarpone</span>
+          </a>
         </li>
         <li>
-          <a class="link-recipe" href="/recipe/clafoutis-sale-poireaux-patates-douces/">Clafoutis Salé aux Poireaux et Patates Douces</a>
+          <a class="link-recipe" href="/recipe/clafoutis-sale-poireaux-patates-douces/">
+            <img class="recipe-image" src="/images/clafoutis-sale-poireaux-patates-douces.jpg" alt="Clafoutis salé" />
+            <span class="recipe-title">Clafoutis Salé aux Poireaux et Patates Douces</span>
+          </a>
         </li>
         <li>
-          <a class="link-recipe" href="/recipe/curry-butternut-lentilles-vertes-coco/">Curry de Butternut et Lentilles Vertes au Coco</a>
+          <a class="link-recipe" href="/recipe/curry-butternut-lentilles-vertes-coco/">
+            <img class="recipe-image" src="/images/curry-butternut-lentilles-vertes-coco.jpg" alt="Curry de butternut" />
+            <span class="recipe-title">Curry de Butternut et Lentilles Vertes au Coco</span>
+          </a>
         </li>
         <li>
-          <a class="link-recipe" href="/recipe/dal-lentilles-lait-coco/">Dal de lentilles au lait de coco</a>
+          <a class="link-recipe" href="/recipe/dal-lentilles-lait-coco/">
+            <img class="recipe-image" src="/images/dal-lentilles-lait-coco.jpg" alt="Dal de lentilles" />
+            <span class="recipe-title">Dal de lentilles au lait de coco</span>
+          </a>
         </li>
         <li>
-          <a class="link-recipe" href="/recipe/gratin-lentilles-patates-douces/">Gratin de lentilles et patates douces</a>
+          <a class="link-recipe" href="/recipe/gratin-lentilles-patates-douces/">
+            <img class="recipe-image" src="/images/gratin-lentilles-patates-douces.jpg" alt="Gratin de lentilles" />
+            <span class="recipe-title">Gratin de lentilles et patates douces</span>
+          </a>
         </li>
         <li>
-          <a class="link-recipe" href="/recipe/tarte-poireaux-chevre-noisettes/">Tarte fine aux poireaux, chèvre et noisettes</a>
+          <a class="link-recipe" href="/recipe/tarte-poireaux-chevre-noisettes/">
+            <img class="recipe-image" src="/images/tarte-poireaux-chevre-noisettes.jpg" alt="Tarte aux poireaux" />
+            <span class="recipe-title">Tarte fine aux poireaux, chèvre et noisettes</span>
+          </a>
         </li>
         <li>
-          <a class="link-recipe" href="/recipe/terrine-deux-saumons/">Terrine aux deux saumons</a>
+          <a class="link-recipe" href="/recipe/terrine-deux-saumons/">
+            <img class="recipe-image" src="/images/terrine-deux-saumons.jpg" alt="Terrine aux deux saumons" />
+            <span class="recipe-title">Terrine aux deux saumons</span>
+          </a>
         </li>
         <li>
-          <a class="link-recipe" href="/recipe/tiramisu-coco-framboises-litchis/">Tiramisu Coco Framboises Litchis</a>
+          <a class="link-recipe" href="/recipe/tiramisu-coco-framboises-litchis/">
+            <img class="recipe-image" src="/images/tiramisu-coco-framboises-litchis.jpg" alt="Tiramisu coco" />
+            <span class="recipe-title">Tiramisu Coco Framboises Litchis</span>
+          </a>
         </li>
       </ul>
     </nav>
@@ -159,6 +278,8 @@
         const searchInput = document.getElementById("search-input");
         const links = document.querySelectorAll("a.link-recipe");
         const filterButtons = document.querySelectorAll(".filter-btn");
+        const layoutButtons = document.querySelectorAll(".layout-btn");
+        const recipeList = document.querySelector(".list-recipes");
 
         // Add data-category attributes to recipes
         const recipeCategories = {
@@ -192,6 +313,14 @@
           });
         }
 
+        function changeLayout(layout) {
+          recipeList.classList.remove("grid-view", "list-view");
+          recipeList.classList.add(`${layout}-view`);
+          layoutButtons.forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.layout === layout);
+          });
+        }
+
         searchInput.addEventListener("input", filterRecipes);
 
         filterButtons.forEach(button => {
@@ -199,6 +328,12 @@
             filterButtons.forEach(btn => btn.classList.remove("active"));
             button.classList.add("active");
             filterRecipes();
+          });
+        });
+
+        layoutButtons.forEach(button => {
+          button.addEventListener("click", () => {
+            changeLayout(button.dataset.layout);
           });
         });
       });
