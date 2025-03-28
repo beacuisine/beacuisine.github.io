@@ -2,9 +2,9 @@
 layout: recipe
 title: Banana bread - Pain/cake à la banane
 image: /images/banana-bread.jpg
+total_time: 1h 20 min
 prep_time: 20 minutes
 cook_time: 1h à 160°C
-total_time: 1h 20 min
 source: https://www.instagram.com/p/DDVHzBQIrAE/
 ---
 
