@@ -3,95 +3,142 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Liste de recettes - Béa cuisine</title>
+    <title>Recettes de cuisine - Béa cuisine</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      body {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      header h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .search-container {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+      }
+      #search-input {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        transition: border-color 0.3s ease;
+      }
+      #search-input:focus {
+        outline: none;
+        border-color: #3498db;
+      }
+      .filters {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 20px;
+        background-color: #f0f0f0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .filter-btn.active {
+        background-color: #3498db;
+        color: white;
+      }
+      .list-recipes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        list-style: none;
+        padding: 0;
+      }
+      .link-recipe {
+        display: block;
+        padding: 1.5rem;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-decoration: none;
+        color: #2c3e50;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .link-recipe:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+        .filters {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .filter-btn {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
   <body>
     <header role="banner">
-      <h1>Liste de recettes de cuisine</h1>
+      <h1>Recettes de cuisine</h1>
+      <p>Découvrez nos délicieuses recettes faites maison</p>
     </header>
-    <form role="search">
-      <label for="search-input">Rechercher une recette :</label>
-      <input type="text" id="search-input" placeholder="Rechercher..." />
-    </form>
+    <div class="search-container">
+      <form role="search">
+        <label for="search-input">Rechercher une recette :</label>
+        <input type="text" id="search-input" placeholder="Rechercher..." aria-label="Rechercher une recette" />
+      </form>
+    </div>
     <div class="filters">
       <button class="filter-btn active" data-category="all">Toutes les recettes</button>
       <button class="filter-btn" data-category="starter">Entrées</button>
       <button class="filter-btn" data-category="main">Plats principaux</button>
-      <button class="filter-btn" data-category="bread">Pains</button>
       <button class="filter-btn" data-category="dessert">Desserts</button>
     </div>
     <nav role="navigation">
       <ul class="list-recipes">
         <li>
-          <a
-            class="link-recipe"
-            href="./recette/banana-bread.html"
-            >Banana bread - Pain/cake à la banane</a
-          >
+          <a class="link-recipe" href="/recipe/banana-bread/">Banana bread - Pain/cake à la banane</a>
         </li>
         <li>
-          <a
-            class="link-recipe"
-            href="./recette/buche-aperitive-noel.html"
-            >Bûche apéritive de Noël</a
-          >
+          <a class="link-recipe" href="/recipe/buche-aperitive-noel/">Bûche apéritive de Noël</a>
         </li>
         <li>
-          <a
-            class="link-recipe"
-            href="./recette/cake-moelleux-amande-citron-mascarpone.html"
-            >Cake moelleux amande citron mascarpone</a
-          >
+          <a class="link-recipe" href="/recipe/cake-moelleux-amande-citron-mascarpone/">Cake moelleux amande citron mascarpone</a>
         </li>
         <li>
-          <a
-            class="link-recipe"
-            href="./recette/clafoutis-salé-poireaux-patates-douces.html"
-            >Clafoutis Salé aux Poireaux et Patates Douces</a
-          >
+          <a class="link-recipe" href="/recipe/clafoutis-sale-poireaux-patates-douces/">Clafoutis Salé aux Poireaux et Patates Douces</a>
         </li>
         <li>
-          <a
-            class="link-recipe"
-            href="./recette/curry-butternut-lentilles-vertes-coco.html"
-            >Curry de Butternut et Lentilles Vertes au Coco</a
-          >
+          <a class="link-recipe" href="/recipe/curry-butternut-lentilles-vertes-coco/">Curry de Butternut et Lentilles Vertes au Coco</a>
         </li>
         <li>
-          <a
-            class="link-recipe" 
-            href="./recette/dal-lentilles-lait-coco.html"
-            >Dal de lentilles au lait de coco</a
-          >
+          <a class="link-recipe" href="/recipe/dal-lentilles-lait-coco/">Dal de lentilles au lait de coco</a>
         </li>
         <li>
-          <a
-            class="link-recipe"
-            href="./recette/gratin-lentilles-patates-douces.html"
-            >Gratin de lentilles et patates douces</a
-          >
+          <a class="link-recipe" href="/recipe/gratin-lentilles-patates-douces/">Gratin de lentilles et patates douces</a>
         </li>
         <li>
-          <a 
-            class="link-recipe"
-            href="./recette/tarte-poireaux-chevre-noisettes.html"
-            >Tarte fine aux poireaux, chèvre et noisettes</a
-          >
+          <a class="link-recipe" href="/recipe/tarte-poireaux-chevre-noisettes/">Tarte fine aux poireaux, chèvre et noisettes</a>
         </li>
         <li>
-          <a
-            class="link-recipe"
-            href="./recette/terrine-deux-saumons.html"
-            >Terrine aux deux saumons</a
-          >
+          <a class="link-recipe" href="/recipe/terrine-deux-saumons/">Terrine aux deux saumons</a>
         </li>
         <li>
-          <a
-            class="link-recipe"
-            href="./recette/tiramisu-coco-framboises-litchis.html"
-            >Tiramisu Coco Framboises Litchis</a
-          >
+          <a class="link-recipe" href="/recipe/tiramisu-coco-framboises-litchis/">Tiramisu Coco Framboises Litchis</a>
         </li>
       </ul>
     </nav>
@@ -103,22 +150,22 @@
 
         // Add data-category attributes to recipes
         const recipeCategories = {
-          "banana-bread.html": ["dessert"],
-          "buche-aperitive-noel.html": ["starter"],
-          "cake-moelleux-amande-citron-mascarpone.html": ["dessert"],
-          "clafoutis-salé-poireaux-patates-douces.html": ["main"],
-          "curry-butternut-lentilles-vertes-coco.html": ["main"],
-          "dal-lentilles-lait-coco.html": ["main"],
-          "gratin-lentilles-patates-douces.html": ["main"],
-          "tarte-poireaux-chevre-noisettes.html": ["main"],
-          "terrine-deux-saumons.html": ["starter"],
-          "tiramisu-coco-framboises-litchis.html": ["dessert"]
+          "banana-bread": ["dessert"],
+          "buche-aperitive-noel": ["starter"],
+          "cake-moelleux-amande-citron-mascarpone": ["dessert"],
+          "clafoutis-sale-poireaux-patates-douces": ["main"],
+          "curry-butternut-lentilles-vertes-coco": ["main"],
+          "dal-lentilles-lait-coco": ["main"],
+          "gratin-lentilles-patates-douces": ["main"],
+          "tarte-poireaux-chevre-noisettes": ["main"],
+          "terrine-deux-saumons": ["starter"],
+          "tiramisu-coco-framboises-litchis": ["dessert"]
         };
 
         links.forEach(link => {
           const href = link.getAttribute("href");
-          const recipeName = href.split("/").pop();
-          link.setAttribute("data-categories", JSON.stringify(recipeCategories[recipeName]));
+          const slug = href.split("/").slice(-2)[0]; // Get the slug from the URL
+          link.setAttribute("data-categories", JSON.stringify(recipeCategories[slug]));
         });
 
         function filterRecipes() {
@@ -129,7 +176,7 @@
             const matchesSearch = link.innerText.toLowerCase().includes(searchFilter);
             const categories = JSON.parse(link.getAttribute("data-categories"));
             const matchesCategory = activeCategory === "all" || categories.includes(activeCategory);
-            link.style.display = matchesSearch && matchesCategory ? "" : "none";
+            link.parentElement.style.display = matchesSearch && matchesCategory ? "" : "none";
           });
         }
 
