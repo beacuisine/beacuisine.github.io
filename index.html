@@ -220,6 +220,8 @@
           <button class="filter-btn" data-category="starter">Entrées</button>
           <button class="filter-btn" data-category="main">Plats principaux</button>
           <button class="filter-btn" data-category="dessert">Desserts</button>
+          <button class="filter-btn" data-category="breakfast">Petit déjeuner</button>
+          <button class="filter-btn" data-category="afternoon-snack">Goûter</button>
         </div>
         <div class="layout-toggle">
           <button class="layout-btn active" data-layout="grid" aria-label="Vue grille" title="Vue grille">
@@ -338,10 +340,10 @@
         // Add data-category attributes to recipes
         const recipeCategories = {
           "banana-bread": ["dessert"],
-          "barres-maison-avoine-coco-chocolat": ["starter"],
-          "buche-aperitive-noel": ["dessert"],
+          "barres-maison-avoine-coco-chocolat": ["breakfast", "afternoon-snack"],
+          "buche-aperitive-noel": ["starter"],
           "cake-moelleux-amande-citron-mascarpone": ["dessert"],
-          "clafoutis-sale-poireaux-patates-douces": ["main"],
+          "clafoutis-sale-poireaux-patates-douces": ["starter"],
           "curry-butternut-lentilles-vertes-coco": ["main"],
           "dal-lentilles-lait-coco": ["main"],
           "gratin-lentilles-patates-douces": ["main"],
