@@ -48,7 +48,15 @@
     
     {% if page.source %}
     <footer class="recipe-source">
-      <p>Source : {{ page.source }}</p>
+      <p>Source : 
+    {% endif %}
+    {% if page.source | starts_with: 'http' or page.source | starts_with: 'https' %}
+      <a href="{{ page.source }}" target="_blank" rel="noopener noreferrer">{{ page.source }}</a>
+    {% else %}
+      {{ page.source }}
+    {% endif %}
+    {% if page.source %}
+      </p>
     </footer>
     {% endif %}
   </body>
