@@ -202,12 +202,21 @@
           link.setAttribute("data-categories", JSON.stringify(recipeCategories[slug]));
         });
 
+        // Normalize French accents for search
+        function normalizeAccents(str) {
+          return str
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase();
+        }
+
         function filterRecipes() {
-          const searchFilter = searchInput.value.toLowerCase();
+          const searchFilter = normalizeAccents(searchInput.value);
           const activeCategory = document.querySelector(".filter-btn.active").dataset.category;
 
           links.forEach((link) => {
-            const matchesSearch = link.innerText.toLowerCase().includes(searchFilter);
+            const recipeText = normalizeAccents(link.innerText);
+            const matchesSearch = recipeText.includes(searchFilter);
             const categories = JSON.parse(link.getAttribute("data-categories"));
             const matchesCategory = activeCategory === "all" || categories.includes(activeCategory);
             link.parentElement.style.display = matchesSearch && matchesCategory ? "" : "none";
