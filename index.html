@@ -23,12 +23,12 @@
     <main role="main">
       <div class="controls">
         <div class="filters">
-          <button class="filter-btn active" data-category="all">Toutes les recettes</button>
-          <button class="filter-btn" data-category="starter">Entrées</button>
-          <button class="filter-btn" data-category="main">Plats principaux</button>
-          <button class="filter-btn" data-category="dessert">Desserts</button>
-          <button class="filter-btn" data-category="breakfast">Petit déjeuner</button>
-          <button class="filter-btn" data-category="afternoon-snack">Goûter</button>
+          <button class="filter-btn active" data-category="all" aria-label="Filtre : Toutes les recettes">Toutes les recettes</button>
+          <button class="filter-btn" data-category="starter" aria-label="Filtre : Entrées">Entrées</button>
+          <button class="filter-btn" data-category="main" aria-label="Filtre : Plats principaux">Plats principaux</button>
+          <button class="filter-btn" data-category="dessert" aria-label="Filtre : Desserts">Desserts</button>
+          <button class="filter-btn" data-category="breakfast" aria-label="Filtre : Petit déjeuner">Petit déjeuner</button>
+          <button class="filter-btn" data-category="afternoon-snack" aria-label="Filtre : Goûter">Goûter</button>
         </div>
         <div class="layout-toggle">
           <button class="layout-btn active" data-layout="grid" aria-label="Vue grille" title="Vue grille">
@@ -148,7 +148,7 @@
           if (hasValue) {
             searchWrapper.classList.add("has-value");
             searchLabel.textContent = "Rechercher une recette : " + searchInput.value;
-            searchLabel.setAttribute("aria-hidden", "false");
+              searchLabel.setAttribute("aria-hidden", "false");
             searchInput.removeAttribute("aria-label");
           } else {
             searchWrapper.classList.remove("has-value");
