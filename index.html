@@ -13,8 +13,8 @@
       <div class="search-container">
         <form role="search">
           <div class="search-input-wrapper">
-            <p id="search-label" class="visually-hidden">Rechercher une recette</p>
-            <input type="text" id="search-input" aria-labelledby="search-label" />
+            <p id="search-label" class="visually-hidden" aria-hidden="true">Rechercher une recette</p>
+            <input type="text" id="search-input" aria-label="Rechercher une recette" aria-labelledby="search-label" />
             <label for="search-input" aria-hidden="true">Rechercher une recette</label>
           </div>
         </form>
@@ -148,9 +148,13 @@
           if (hasValue) {
             searchWrapper.classList.add("has-value");
             searchLabel.textContent = "Rechercher une recette : " + searchInput.value;
+            searchLabel.setAttribute("aria-hidden", "false");
+            searchInput.removeAttribute("aria-label");
           } else {
             searchWrapper.classList.remove("has-value");
             searchLabel.textContent = "Rechercher une recette";
+            searchLabel.setAttribute("aria-hidden", "true");
+            searchInput.setAttribute("aria-label", "Rechercher une recette");
           }
         }
         searchInput.addEventListener("input", updateFloatingLabel);
