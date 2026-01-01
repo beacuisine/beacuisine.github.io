@@ -13,7 +13,8 @@
       <div class="search-container">
         <form role="search">
           <div class="search-input-wrapper">
-            <input type="text" id="search-input" aria-label="Rechercher une recette" />
+            <p id="search-label" class="visually-hidden">Rechercher une recette</p>
+            <input type="text" id="search-input" aria-labelledby="search-label" />
             <label for="search-input" aria-hidden="true">Rechercher une recette</label>
           </div>
         </form>
@@ -141,14 +142,15 @@
         const recipeList = document.querySelector(".list-recipes");
 
         // Handle floating label
+        const searchLabel = document.getElementById("search-label");
         function updateFloatingLabel() {
           const hasValue = searchInput.value.trim() !== "";
           if (hasValue) {
             searchWrapper.classList.add("has-value");
-            searchInput.ariaLabel = "Rechercher une recette : " + searchInput.value;
+            searchLabel.textContent = "Rechercher une recette : " + searchInput.value;
           } else {
             searchWrapper.classList.remove("has-value");
-            searchInput.ariaLabel = "Rechercher une recette";
+            searchLabel.textContent = "Rechercher une recette";
           }
         }
         searchInput.addEventListener("input", updateFloatingLabel);
