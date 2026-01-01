@@ -152,6 +152,13 @@
         searchInput.addEventListener("blur", updateFloatingLabel);
         updateFloatingLabel(); // Check initial state
 
+        // Prevent form submission on Enter and hide keyboard
+        const searchForm = searchInput.closest("form");
+        searchForm.addEventListener("submit", function(e) {
+          e.preventDefault();
+          searchInput.blur(); // Hide keyboard on mobile
+        });
+
         // Handle missing images
         document.querySelectorAll('.recipe-image').forEach(img => {
           img.onerror = function() {
