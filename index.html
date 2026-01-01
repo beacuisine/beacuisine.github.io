@@ -145,10 +145,10 @@
           const hasValue = searchInput.value.trim() !== "";
           if (hasValue) {
             searchWrapper.classList.add("has-value");
-            searchInput.setAttribute("aria-label", "Rechercher une recette : " + searchInput.value);
+            searchInput.ariaLabel = "Rechercher une recette : " + searchInput.value;
           } else {
             searchWrapper.classList.remove("has-value");
-            searchInput.setAttribute("aria-label", "Rechercher une recette");
+            searchInput.ariaLabel = "Rechercher une recette";
           }
         }
         searchInput.addEventListener("input", updateFloatingLabel);
