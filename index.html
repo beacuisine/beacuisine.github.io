@@ -23,12 +23,12 @@
     <main role="main">
       <div class="controls">
         <div class="filters">
-          <button class="filter-btn active" data-category="all" aria-label="Filtre : Toutes les recettes">Toutes les recettes</button>
-          <button class="filter-btn" data-category="starter" aria-label="Filtre : Entrées">Entrées</button>
-          <button class="filter-btn" data-category="main" aria-label="Filtre : Plats principaux">Plats principaux</button>
-          <button class="filter-btn" data-category="dessert" aria-label="Filtre : Desserts">Desserts</button>
-          <button class="filter-btn" data-category="breakfast" aria-label="Filtre : Petit déjeuner">Petit déjeuner</button>
-          <button class="filter-btn" data-category="afternoon-snack" aria-label="Filtre : Goûter">Goûter</button>
+          <button class="filter-btn active" data-category="all" aria-label="Filtre : Toutes les recettes" aria-pressed="true">Toutes les recettes</button>
+          <button class="filter-btn" data-category="starter" aria-label="Filtre : Entrées" aria-pressed="false">Entrées</button>
+          <button class="filter-btn" data-category="main" aria-label="Filtre : Plats principaux" aria-pressed="false">Plats principaux</button>
+          <button class="filter-btn" data-category="dessert" aria-label="Filtre : Desserts" aria-pressed="false">Desserts</button>
+          <button class="filter-btn" data-category="breakfast" aria-label="Filtre : Petit déjeuner" aria-pressed="false">Petit déjeuner</button>
+          <button class="filter-btn" data-category="afternoon-snack" aria-label="Filtre : Goûter" aria-pressed="false">Goûter</button>
         </div>
         <div class="layout-toggle">
           <button class="layout-btn active" data-layout="grid" aria-label="Vue grille" title="Vue grille">
@@ -226,8 +226,12 @@
 
         filterButtons.forEach(button => {
           button.addEventListener("click", () => {
-            filterButtons.forEach(btn => btn.classList.remove("active"));
+            filterButtons.forEach(btn => {
+              btn.classList.remove("active");
+              btn.setAttribute("aria-pressed", "false");
+            });
             button.classList.add("active");
+            button.setAttribute("aria-pressed", "true");
             filterRecipes();
           });
         });
