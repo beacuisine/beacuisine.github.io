@@ -344,6 +344,15 @@ header:has(.back-button) {
   margin-bottom: 20px;
 }
 
+h3 {
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+
+h3#notes, h3#astuce {
+  margin-bottom: 0;
+}
+
 /* Recipe Picture */
 .recipe-picture {
   width: 100%;
@@ -393,12 +402,16 @@ header:has(.back-button) {
   padding-left: 20px;
 }
 
+.recipe ul {
+  list-style: disc;
+}
+
 .recipe li {
   margin-bottom: 8px;
 }
 
 .recipe ol {
-  list-style-position: inside;
+  list-style: decimal;
 }
 
 .recipe ol li {
