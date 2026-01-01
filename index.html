@@ -26,17 +26,41 @@
         max-width: 600px;
         margin: 0 auto 2rem;
       }
+      .search-input-wrapper {
+        position: relative;
+      }
+      .search-input-wrapper label {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        color: #666;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        background-color: white;
+        padding: 0 0.25rem;
+      }
+      .search-input-wrapper input:focus + label,
+      .search-input-wrapper.has-value label {
+        top: 0;
+        transform: translateY(-50%) scale(0.85);
+        color: #666;
+      }
       #search-input {
         width: 100%;
         padding: 0.8rem;
+        padding-top: 1.2rem;
         font-size: 1rem;
         border: 2px solid #333333;
         border-radius: 8px;
         transition: border-color 0.3s ease;
+        background-color: white;
       }
       #search-input:focus {
         border-color: #666666;
         box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        outline: none;
       }
       .controls {
         display: flex;
@@ -208,8 +232,10 @@
       <h1>Recettes de cuisine</h1>
       <div class="search-container">
         <form role="search">
-          <label for="search-input">Rechercher une recette :</label>
-          <input type="text" id="search-input" placeholder="Rechercher..." />
+          <div class="search-input-wrapper">
+            <input type="text" id="search-input" />
+            <label for="search-input">Rechercher une recette</label>
+          </div>
         </form>
       </div>
     </header>
@@ -322,10 +348,24 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("search-input");
+        const searchWrapper = searchInput.closest(".search-input-wrapper");
         const links = document.querySelectorAll("a.link-recipe");
         const filterButtons = document.querySelectorAll(".filter-btn");
         const layoutButtons = document.querySelectorAll(".layout-btn");
         const recipeList = document.querySelector(".list-recipes");
+
+        // Handle floating label
+        function updateFloatingLabel() {
+          if (searchInput.value.trim() !== "") {
+            searchWrapper.classList.add("has-value");
+          } else {
+            searchWrapper.classList.remove("has-value");
+          }
+        }
+        searchInput.addEventListener("input", updateFloatingLabel);
+        searchInput.addEventListener("focus", updateFloatingLabel);
+        searchInput.addEventListener("blur", updateFloatingLabel);
+        updateFloatingLabel(); // Check initial state
 
         // Handle missing images
         document.querySelectorAll('.recipe-image').forEach(img => {
