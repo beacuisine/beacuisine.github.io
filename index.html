@@ -6,6 +6,50 @@
     <title>Recettes de cuisine - Béa cuisine</title>
     <link rel="stylesheet" href="./css/styles.css" />
     <style>
+      /* Modern CSS Reset */
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+      }
+      html, body {
+        height: 100%;
+      }
+      body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      img, picture, video, canvas, svg {
+        display: block;
+        max-width: 100%;
+      }
+      input, button, textarea, select {
+        font: inherit;
+      }
+      p, h1, h2, h3, h4, h5, h6 {
+        overflow-wrap: break-word;
+      }
+      ul, ol {
+        list-style: none;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
       body {
         max-width: 1200px;
         margin: 0 auto;
@@ -134,6 +178,11 @@
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 1.5rem;
       }
+      @media (max-width: 658px) {
+        .list-recipes.grid-view {
+          grid-template-columns: 1fr;
+        }
+      }
       .list-recipes.list-view {
         display: flex;
         flex-direction: column;
@@ -225,7 +274,7 @@
           height: 200px;
         }
       }
-      @media (max-width: 657px) {
+      @media (max-width: 658px) {
         .layout-toggle {
           display: none;
         }
