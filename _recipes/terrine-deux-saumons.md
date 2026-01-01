@@ -8,9 +8,10 @@ prep_time: 15 min
 cook_time: 50 min
 refrigeration_time: 2 heures
 source: https://www.enviedebienmanger.fr/fiche-recette/recette-terrine-aux-deux-saumons
+description: Une délicieuse terrine qui marie le goût fumé du saumon fumé avec la fraîcheur du saumon frais, le tout parfumé de ciboulette et de curry. Une entrée raffinée qui fera sensation lors de vos repas de fête.
 ---
 
-Une délicieuse terrine qui marie le goût fumé du saumon fumé avec la fraîcheur du saumon frais, le tout parfumé de ciboulette et de curry. Une entrée raffinée qui fera sensation lors de vos repas de fête.
+
 
 ### Ingrédients
 - 16,5 cl de crème entière fluide

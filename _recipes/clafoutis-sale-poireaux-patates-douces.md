@@ -7,9 +7,8 @@ total_time: 1h environ
 prep_time: 20 min
 cook_time: 35 à 40 min
 source: https://www.facebook.com/story.php?story_fbid=pfbid0BbhwfNvCtVYff5DcJKwVHrB9Jc5iF5ntG9wrcez2dMg87Ugk7ciUvNBbn4ohX3nHl&id=100095437501054&post_id=100095437501054_pfbid0BbhwfNvCtVYff5DcJKwVHrB9Jc5iF5ntG9wrcez2dMg87Ugk7ciUvNBbn4ohX3nHl
+description: Envie d'un plat réconfortant et plein de saveurs ? Ce clafoutis salé allie le fondant des poireaux et la douceur des patates douces caramélisées, le tout gratiné avec du comté. Un véritable délice pour vos repas en famille ou entre amis ! Facile à réaliser, il saura ravir vos papilles avec sa texture crémeuse et son parfum irrésistible. Prêt à régaler vos invités ? Suivez cette recette simple et savoureuse pour une expérience culinaire inoubliable.
 ---
-
-Envie d'un plat réconfortant et plein de saveurs ? Ce clafoutis salé allie le fondant des poireaux et la douceur des patates douces caramélisées, le tout gratiné avec du comté. Un véritable délice pour vos repas en famille ou entre amis ! Facile à réaliser, il saura ravir vos papilles avec sa texture crémeuse et son parfum irrésistible. Prêt à régaler vos invités ? Suivez cette recette simple et savoureuse pour une expérience culinaire inoubliable.
 
 ### Ingrédients
 - 3 œufs

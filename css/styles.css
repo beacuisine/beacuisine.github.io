@@ -353,6 +353,11 @@ header:has(.back-button) {
   margin-bottom: 20px;
 }
 
+/* Recipe Description */
+.recipe-description {
+  margin-bottom: 16px;
+}
+
 /* Recipe Servings */
 .recipe-servings {
   font-size: 1.1em;

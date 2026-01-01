@@ -4,10 +4,8 @@ title: Barres Maison - Avoine, Noix de Coco & Chocolat Noir
 image: /images/barres-maison-avoine-coco-chocolat.jpg
 cook_time: 20 minutes à 180°C
 source: https://www.facebook.com/61552993641769/posts/122187153116099788/
+description: 🥥 Barres Maison &#58; Avoine, Noix de Coco & Chocolat Noir ! Stop aux snacks industriels ! Faites-vous plaisir avec ces barres saines et ultra-gourmandes, parfaites pour le petit-déj’ ou une collation après le sport. 🌱✨
 ---
-
-🥥 Barres Maison : Avoine, Noix de Coco & Chocolat Noir !
-Stop aux snacks industriels ! Faites-vous plaisir avec ces barres saines et ultra-gourmandes, parfaites pour le petit-déj’ ou une collation après le sport. 🌱✨
 
 ### Ingrédients
 - 200 g de flocons d’avoine

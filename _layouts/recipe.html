@@ -41,6 +41,10 @@
           <p><strong>Temps de réfrigération :</strong> {{ page.refrigeration_time }}</p>
           {% endif %}
         </div>
+
+        {% if page.description %}
+        <p class="recipe-description">{{ page.description }}</p>
+        {% endif %}
         
         {{ page.content }}
       </article>

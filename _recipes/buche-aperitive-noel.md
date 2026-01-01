@@ -8,9 +8,8 @@ prep_time: 15 min
 cook_time: 20 min à 180°C
 refrigeration_time: 1h minimum
 source: https://www.instagram.com/reel/C1Cu9j-MyES/
+description: Une délicieuse bûche apéritive festive qui combine la fraîcheur du fromage blanc, la douceur des épinards et le goût fumé du saumon. Parfaite pour vos réceptions de Noël, elle ravira vos invités avec son aspect élégant et son goût raffiné.
 ---
-
-Une délicieuse bûche apéritive festive qui combine la fraîcheur du fromage blanc, la douceur des épinards et le goût fumé du saumon. Parfaite pour vos réceptions de Noël, elle ravira vos invités avec son aspect élégant et son goût raffiné.
 
 ### Ingrédients
 - 3 oeufs
