@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Quiche au thon sans pâte
+categories: [main]
 image: /images/quiche-thon-sans-pate.jpg
 total_time: 1h 20 min
 prep_time: 20 minutes

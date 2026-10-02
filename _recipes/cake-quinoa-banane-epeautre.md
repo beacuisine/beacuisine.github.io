@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Cake au quinoa, à la banane et à la boisson à l'épeautre
+categories: [dessert]
 image: /images/cake-quinoa-banane-epeautre.jpg
 servings: 6
 total_time: 1h 05 min

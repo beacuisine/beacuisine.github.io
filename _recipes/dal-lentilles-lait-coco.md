@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Dal de lentilles au lait de coco
+categories: [main]
 servings: 5
 total_time: 35 min
 prep_time: 15 min

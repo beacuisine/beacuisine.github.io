@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Terrine aux deux saumons
+categories: [starter]
 image: /images/terrine-deux-saumons.jpg
 servings: 5
 total_time: 3h 05 min

@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -52,90 +54,19 @@
         </div>
       </div>
       <ul id="recipes-list" class="list-recipes grid-view">
+        {%- assign sorted_recipes = site.recipes | sort: "title" -%}
+        {%- for recipe in sorted_recipes %}
         <li>
-          <a class="link-recipe" href="/recipe/banana-bread/">
-            <img class="recipe-image" src="/images/banana-bread.jpg" alt="" />
-            <span class="recipe-title">Banana bread - Pain/cake à la banane</span>
+          <a class="link-recipe" href="{{ recipe.url | relative_url }}" data-categories="{{ recipe.categories | jsonify | escape }}">
+            {%- if recipe.image %}
+            <img class="recipe-image" src="{{ recipe.image | relative_url }}" alt="" />
+            {%- else %}
+            <img class="recipe-image" src="data:image/svg+xml;utf8,%3Csvg width='300' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='200' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='48' fill='%23495057' text-anchor='middle' dy='.3em'%3E{{ recipe.title | slice: 0 | upcase | escape }}%3C/text%3E%3C/svg%3E" alt="" />
+            {%- endif %}
+            <span class="recipe-title">{{ recipe.title | escape }}</span>
           </a>
         </li>
-        <li>
-          <a class="link-recipe" href="/recipe/barres-maison-avoine-coco-chocolat/">
-            <img class="recipe-image" src="/images/barres-maison-avoine-coco-chocolat.jpg" alt="" />
-            <span class="recipe-title">Barres maison avoine coco chocolat</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/buche-aperitive-noel/">
-            <img class="recipe-image" src="/images/buche-aperitive-noel.jpg" alt="" />
-            <span class="recipe-title">Bûche apéritive de Noël</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/cake-quinoa-banane-epeautre/">
-            <img class="recipe-image" src="/images/cake-quinoa-banane-epeautre.jpg" alt="" />
-            <span class="recipe-title">Cake au quinoa, à la banane et à la boisson à l'épeautre</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/cake-moelleux-amande-citron-mascarpone/">
-            <img class="recipe-image" src="/images/cake-moelleux-amande-citron-mascarpone.jpg" alt="" />
-            <span class="recipe-title">Cake moelleux amande citron mascarpone</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/clafoutis-sale-poireaux-patates-douces/">
-            <img class="recipe-image" src="/images/clafoutis-sale-poireaux-patates-douces.jpg" alt="" />
-            <span class="recipe-title">Clafoutis Salé aux Poireaux et Patates Douces</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/curry-butternut-lentilles-vertes-coco/">
-            <img class="recipe-image" src="/images/curry-butternut-lentilles-vertes-coco.jpg" alt="" />
-            <span class="recipe-title">Curry de Butternut et Lentilles Vertes au Coco</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/dal-lentilles-lait-coco/">
-            <img class="recipe-image" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2U5ZWNlZiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDgiIGZpbGw9IiM0OTUwNTciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5EPC90ZXh0Pjwvc3ZnPg==" alt="" />
-            <span class="recipe-title">Dal de lentilles au lait de coco</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/gratin-lentilles-patates-douces/">
-            <img class="recipe-image" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2U5ZWNlZiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDgiIGZpbGw9IiM0OTUwNTciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5HPC90ZXh0Pjwvc3ZnPg==" alt="" />
-            <span class="recipe-title">Gratin de lentilles et patates douces</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/gratin-ravioles-courgettes/">
-            <img class="recipe-image" src="/images/gratin-ravioles-courgettes.jpg" alt="" />
-            <span class="recipe-title">Gratin de ravioles aux courgettes</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/quiche-thon-sans-pate/">
-            <img class="recipe-image" src="/images/quiche-thon-sans-pate.jpg" alt="" />
-            <span class="recipe-title">Quiche au thon sans pâte</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/tarte-poireaux-chevre-noisettes/">
-            <img class="recipe-image" src="/images/tarte-poireaux-chevre-noisettes.jpg" alt="" />
-            <span class="recipe-title">Tarte fine aux poireaux, chèvre et noisettes</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/terrine-deux-saumons/">
-            <img class="recipe-image" src="/images/terrine-deux-saumons.jpg" alt="" />
-            <span class="recipe-title">Terrine aux deux saumons</span>
-          </a>
-        </li>
-        <li>
-          <a class="link-recipe" href="/recipe/tiramisu-coco-framboises-litchis/">
-            <img class="recipe-image" src="/images/tiramisu-coco-framboises-litchis.jpg" alt="" />
-            <span class="recipe-title">Tiramisu Coco Framboises Litchis</span>
-          </a>
-        </li>
+        {%- endfor %}
       </ul>
     </main>
     <script>
@@ -185,29 +116,6 @@
           };
         });
 
-        // Add data-category attributes to recipes
-        const recipeCategories = {
-          "banana-bread": ["dessert"],
-          "barres-maison-avoine-coco-chocolat": ["breakfast", "afternoon-snack"],
-          "buche-aperitive-noel": ["starter"],
-          "cake-moelleux-amande-citron-mascarpone": ["dessert"],
-          "clafoutis-sale-poireaux-patates-douces": ["starter"],
-          "curry-butternut-lentilles-vertes-coco": ["main"],
-          "dal-lentilles-lait-coco": ["main"],
-          "gratin-lentilles-patates-douces": ["main"],
-          "gratin-ravioles-courgettes": ["main"],
-          "quiche-thon-sans-pate": ["main"],
-          "tarte-poireaux-chevre-noisettes": ["main"],
-          "terrine-deux-saumons": ["starter"],
-          "tiramisu-coco-framboises-litchis": ["dessert"],
-        };
-
-        links.forEach(link => {
-          const href = link.getAttribute("href");
-          const slug = href.split("/").slice(-2)[0]; // Get the slug from the URL
-          link.setAttribute("data-categories", JSON.stringify(recipeCategories[slug]));
-        });
-
         // Normalize French accents for search
         function normalizeAccents(str) {
           return str
@@ -223,7 +131,7 @@
           links.forEach((link) => {
             const recipeText = normalizeAccents(link.innerText);
             const matchesSearch = recipeText.includes(searchFilter);
-            const categories = JSON.parse(link.getAttribute("data-categories"));
+            const categories = JSON.parse(link.getAttribute("data-categories")) || [];
             const matchesCategory = activeCategory === "all" || categories.includes(activeCategory);
             link.parentElement.style.display = matchesSearch && matchesCategory ? "" : "none";
           });

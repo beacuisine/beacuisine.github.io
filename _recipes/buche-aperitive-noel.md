@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Bûche apéritive de Noël
+categories: [starter]
 image: /images/buche-aperitive-noel.jpg
 servings: 5
 total_time: 1h 35 min

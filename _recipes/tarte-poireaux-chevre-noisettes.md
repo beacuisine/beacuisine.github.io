@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Tarte fine aux poireaux, chèvre et noisettes
+categories: [main]
 image: /images/tarte-poireaux-chevre-noisettes.jpg
 servings: 4
 total_time: 1h

@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Gratin de ravioles aux courgettes
+categories: [main]
 image: /images/gratin-ravioles-courgettes.jpg
 total_time: 40 min
 prep_time: 10 minutes
