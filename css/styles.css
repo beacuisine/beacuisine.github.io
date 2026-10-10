@@ -342,13 +342,16 @@ header:has(.back-button) {
 
 .back-button {
   display: inline-block;
-  text-decoration: none;
-  color: #666;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.2em;
+  color: #333;
   margin-bottom: 0;
 }
 
 .back-button:hover {
-  color: #333;
+  color: #000;
+  text-decoration-thickness: 2px;
 }
 
 /* Recipe Article */
@@ -452,11 +455,43 @@ h3#notes, h3#astuce {
 /* Recipe Source */
 .recipe-source {
   margin-top: 20px;
-  color: #666;
+  color: #333;
   font-size: 0.9em;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  color: #333;
+  font-size: 0.9em;
+}
+
+.recipe-source a {
+  color: #333;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+
+.recipe-source a:hover {
+  color: #000;
+  text-decoration-thickness: 2px;
+}
+
+/* Focus visible (WCAG 2.4.13 AAA): 3px outline, >= 3:1 contrast, double ring */
+.back-button:focus-visible,
+.recipe-source a:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 3px #fff;
+  text-decoration-thickness: 2px;
 }
 
 /* ============================================

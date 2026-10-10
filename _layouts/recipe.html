@@ -50,19 +50,20 @@
         
         {{ page.content }}
       </article>
-    </main>
-    
-    {% if page.source %}
-    <footer class="recipe-source">
-      <p>Source : 
-      {% assign source_starts_with_http = page.source | slice: 0, 4 %}
-      {% if source_starts_with_http == 'http' %}
-        <a href="{{ page.source }}" target="_blank" rel="noopener noreferrer">{{ page.source }}</a>
-      {% else %}
-        {{ page.source }}
+      {% if page.source %}
+      <div class="recipe-source">
+        <p>Source : 
+        {% assign source_starts_with_http = page.source | slice: 0, 4 %}
+        {% if source_starts_with_http == 'http' %}
+          <a href="{{ page.source }}" target="_blank" rel="noopener noreferrer">{{ page.source }}</a>
+        {% else %}
+          {{ page.source }}
+        {% endif %}
+        </p>
+      </div>
       {% endif %}
-      </p>
-    </footer>
-    {% endif %}
+    </main>
+
+    {% include footer.html %}
   </body>
 </html> 
