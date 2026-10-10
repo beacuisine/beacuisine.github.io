@@ -24,6 +24,7 @@
         <p class="recipe-servings">Recette pour {{ page.servings }} personnes</p>
         {% endif %}
         
+        {% if page.total_time or page.prep_time or page.cook_time or page.refrigeration_time %}
         <div class="recipe-times">
           {% if page.total_time %}
           <p><strong>Temps total :</strong> {{ page.total_time }}</p>
@@ -41,6 +42,7 @@
           <p><strong>Temps de réfrigération :</strong> {{ page.refrigeration_time }}</p>
           {% endif %}
         </div>
+        {% endif %}
 
         {% if page.description %}
         <p class="recipe-description">{{ page.description }}</p>
