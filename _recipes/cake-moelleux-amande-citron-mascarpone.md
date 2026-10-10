@@ -2,7 +2,7 @@
 layout: recipe
 title: Cake moelleux amande citron mascarpone
 categories: [dessert]
-image: /images/cake-moelleux-amande-citron-mascarpone.jpg
+image: /images/cake-moelleux-amande-citron-mascarpone.webp
 total_time: 1h
 prep_time: 20 min
 cook_time: 40 min à 180°C

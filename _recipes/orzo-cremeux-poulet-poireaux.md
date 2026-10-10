@@ -2,7 +2,7 @@
 layout: recipe
 title: Orzo crémeux au poulet, poireaux, carottes et champignons
 categories: [main]
-image: /images/orzo-cremeux-poulet-poireaux.jpg
+image: /images/orzo-cremeux-poulet-poireaux.webp
 servings: 4
 source: https://www.instagram.com/reel/DdvVQ5LsQuc/
 ---

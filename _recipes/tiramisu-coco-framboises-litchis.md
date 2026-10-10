@@ -2,7 +2,7 @@
 layout: recipe
 title: Tiramisu Coco Framboises Litchis
 categories: [dessert]
-image: /images/tiramisu-coco-framboises-litchis.jpg
+image: /images/tiramisu-coco-framboises-litchis.webp
 servings: 8
 total_time: 2h 15 min
 prep_time: 15 minutes

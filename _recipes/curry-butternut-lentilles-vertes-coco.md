@@ -2,7 +2,7 @@
 layout: recipe
 title: Curry de Butternut et Lentilles Vertes au Coco
 categories: [main]
-image: /images/curry-butternut-lentilles-vertes-coco.jpg
+image: /images/curry-butternut-lentilles-vertes-coco.webp
 servings: 4
 total_time: 45 min
 prep_time: 45 min

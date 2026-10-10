@@ -2,7 +2,7 @@
 layout: recipe
 title: Clafoutis Salé aux Poireaux et Patates Douces
 categories: [starter]
-image: /images/clafoutis-sale-poireaux-patates-douces.jpg
+image: /images/clafoutis-sale-poireaux-patates-douces.webp
 servings: 4
 total_time: 1h environ
 prep_time: 20 min
