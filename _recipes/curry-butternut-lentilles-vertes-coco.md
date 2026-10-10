@@ -6,7 +6,7 @@ image: /images/curry-butternut-lentilles-vertes-coco.webp
 servings: 4
 total_time: 45 min
 prep_time: 45 min
-source: https://www.facebook.com/story.php?story_fbid=1372787950777661&id=100041394080219&rdid=BEG7Icr1IVLfYEoy
+source: https://www.facebook.com/story.php?story_fbid=1372787950777661&id=100041394080219
 description: Un plat végétarien riche et savoureux qui allie la douceur de la courge à la puissance des épices indiennes. Calories par portion &#58; Environ 400 kcal
 ---
 
