@@ -59,7 +59,7 @@
         <li>
           <a class="link-recipe" href="{{ recipe.url | relative_url }}" data-categories="{{ recipe.categories | jsonify | escape }}">
             {%- if recipe.image %}
-            <img class="recipe-image" src="{{ recipe.image | relative_url }}" alt="" />
+            <img class="recipe-image" src="{{ recipe.image | relative_url }}" alt="" loading="lazy" />
             {%- else %}
             <img class="recipe-image" src="data:image/svg+xml;utf8,%3Csvg width='300' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='200' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='48' fill='%23495057' text-anchor='middle' dy='.3em'%3E{{ recipe.title | slice: 0 | upcase | escape }}%3C/text%3E%3C/svg%3E" alt="" />
             {%- endif %}
