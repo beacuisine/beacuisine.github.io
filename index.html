@@ -68,7 +68,7 @@
         </li>
         {%- endfor %}
       </ul>
-      <p id="no-results" class="no-results" role="status"></p>
+      <div id="no-results" class="no-results" role="status"></div>
     </main>
     {% include footer.html %}
     <script>
@@ -142,7 +142,13 @@
             if (isVisible) visibleCount++;
           });
 
-          noResults.textContent = visibleCount === 0 ? "Aucune recette ne correspond à votre recherche." : "";
+          if (visibleCount === 0 && !noResults.firstElementChild) {
+            const message = document.createElement("p");
+            message.textContent = "Aucune recette ne correspond à votre recherche.";
+            noResults.appendChild(message);
+          } else if (visibleCount > 0) {
+            noResults.replaceChildren();
+          }
         }
 
         function changeLayout(layout) {
