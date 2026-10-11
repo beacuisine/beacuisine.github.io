@@ -354,6 +354,16 @@ header:has(.back-button) {
   text-decoration-thickness: 2px;
 }
 
+.no-results {
+  text-align: center;
+  color: #333;
+  margin: 2rem 0;
+}
+
+.no-results:empty {
+  display: none;
+}
+
 /* Recipe Article */
 .recipe {
   background: #fff;

@@ -68,6 +68,7 @@
         </li>
         {%- endfor %}
       </ul>
+      <p id="no-results" class="no-results" role="status"></p>
     </main>
     {% include footer.html %}
     <script>
@@ -78,6 +79,7 @@
         const filterButtons = document.querySelectorAll(".filter-btn");
         const layoutButtons = document.querySelectorAll(".layout-btn");
         const recipeList = document.querySelector(".list-recipes");
+        const noResults = document.getElementById("no-results");
 
         // Handle floating label
         const searchLabel = document.getElementById("search-label");
@@ -129,13 +131,18 @@
           const searchFilter = normalizeAccents(searchInput.value);
           const activeCategory = document.querySelector(".filter-btn.active").dataset.category;
 
+          let visibleCount = 0;
           links.forEach((link) => {
             const recipeText = normalizeAccents(link.innerText);
             const matchesSearch = recipeText.includes(searchFilter);
             const categories = JSON.parse(link.getAttribute("data-categories")) || [];
             const matchesCategory = activeCategory === "all" || categories.includes(activeCategory);
-            link.parentElement.style.display = matchesSearch && matchesCategory ? "" : "none";
+            const isVisible = matchesSearch && matchesCategory;
+            link.parentElement.style.display = isVisible ? "" : "none";
+            if (isVisible) visibleCount++;
           });
+
+          noResults.textContent = visibleCount === 0 ? "Aucune recette ne correspond à votre recherche." : "";
         }
 
         function changeLayout(layout) {
