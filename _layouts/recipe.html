@@ -3,17 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ page.title }} - {{ site.title }}</title>
+    {% assign full_title = page.title | append: " - " | append: site.title %}
     {% if page.description %}
-    <meta name="description" content="{{ page.description | strip_html | normalize_whitespace | escape }}" />
+      {% assign meta_description = page.description | strip_html | normalize_whitespace %}
+    {% else %}
+      {% assign meta_description = "Découvrez la recette " | append: page.title | append: " : ingrédients et étapes détaillées sur " | append: site.title | append: "." %}
     {% endif %}
+    <title>{% if full_title.size > 60 %}{{ page.title }}{% else %}{{ full_title }}{% endif %}</title>
+    <meta name="description" content="{{ meta_description | escape }}" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="{{ site.title | escape }}" />
     <meta property="og:title" content="{{ page.title | escape }}" />
     <meta property="og:url" content="{{ page.url | absolute_url }}" />
-    {% if page.description %}
-    <meta property="og:description" content="{{ page.description | strip_html | normalize_whitespace | escape }}" />
-    {% endif %}
+    <meta property="og:description" content="{{ meta_description | escape }}" />
+    <meta name="twitter:description" content="{{ meta_description | escape }}" />
     {% if page.image %}
     <meta property="og:image" content="{{ page.image | absolute_url }}" />
     <meta property="og:image:alt" content="{{ page.title | escape }}" />
