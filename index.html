@@ -81,20 +81,8 @@
         const noResults = document.getElementById("no-results");
 
         // Handle floating label
-        const searchLabel = document.getElementById("search-label");
         function updateFloatingLabel() {
-          const hasValue = searchInput.value.trim() !== "";
-          if (hasValue) {
-            searchWrapper.classList.add("has-value");
-            searchLabel.textContent = "Recherche de recette en cours : " + searchInput.value;
-            searchLabel.setAttribute("aria-hidden", "false");
-            searchInput.removeAttribute("aria-label");
-          } else {
-            searchWrapper.classList.remove("has-value");
-            searchLabel.textContent = "Rechercher une recette";
-            searchLabel.setAttribute("aria-hidden", "true");
-            searchInput.setAttribute("aria-label", "Rechercher une recette");
-          }
+          searchWrapper.classList.toggle("has-value", searchInput.value.trim() !== "");
         }
         searchInput.addEventListener("input", updateFloatingLabel);
         searchInput.addEventListener("focus", updateFloatingLabel);
