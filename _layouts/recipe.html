@@ -21,7 +21,7 @@
         {% endif %}
         
         {% if page.servings %}
-        <p class="recipe-servings">Recette pour {{ page.servings }} personnes</p>
+        <p class="recipe-servings">Recette pour {{ page.servings }} {{ page.servings_unit | default: "personnes" }}</p>
         {% endif %}
         
         {% if page.total_time or page.prep_time or page.cook_time or page.refrigeration_time %}
